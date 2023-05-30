@@ -1,4 +1,5 @@
 import { Nunito } from 'next/font/google';
+import ClientOnly from './components/ClientOnly';
 import Navbar from './components/navbar/Navbar';
 import './globals.css';
 
@@ -13,7 +14,9 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
   return (
     <html lang="en">
       <body className={font.className}>
-        <Navbar />
+        <ClientOnly>
+          <Navbar />
+        </ClientOnly>
 
         {children}
       </body>
