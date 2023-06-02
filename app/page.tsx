@@ -2,12 +2,14 @@ import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import getCurrentUser from "./actions/getCurrentUser";
-import getListings, { IListingsParams } from "./actions/getListings";
+import getListings, { IListingsParams } from "@/app/actions/getListings";
 import ListingCard from "./components/listings/ListingCard";
 
 interface HomeProps {
   searchParams: IListingsParams
 }
+
+export const dynamic = "force-dynamic";
 
 const Home = async ({ searchParams }: HomeProps) => {
   const listings = await getListings(searchParams);
